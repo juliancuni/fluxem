@@ -102,3 +102,10 @@ dist
 
 # TernJS port file
 .tern-port
+
+#Hasura
+hasura
+
+.DS_Store
+backend/graphql.schema.json
+backend/src/generated/graphql.ts
