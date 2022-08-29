@@ -1,12 +1,12 @@
-import { Request } from "express";
-import { gql } from "graphql-request";
-import client from "../../helpers/gql.client";
+import {client} from "../../helpers/gql.client";
+import { getSdk } from "../../utils/gql/generated/graphql";
 
 const registerController = async (body: Record<string, string>) => {
+  const sdk = getSdk(client);
+
   const { email, password } = body;
-
-  
-
+  const users = await sdk.allUsers();
+  console.log(users)
   return true;
 };
 
