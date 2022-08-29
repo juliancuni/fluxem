@@ -1,5 +1,6 @@
+//Main Router
 import { Router, Request, Response, NextFunction } from "express";
-import apiRouter from "./api.routes";
+import apiRouter from "./api/api.routes";
 
 const router = Router()
 
@@ -22,6 +23,12 @@ const startedAt = Date.now()
 router.get("/", (req: Request, res: Response) => {
     const uptime = Date.now() - startedAt;
     res.json({startedAt, uptime: `${uptime/1000} sec`})
+})
+
+router.get("*", (req:Request, res: Response) => {
+  res.statusCode = 404;
+  res.statusMessage = "Not FOUND";
+  res.json({"error": "Not Found"})
 })
 
 export default router
