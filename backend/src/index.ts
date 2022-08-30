@@ -10,7 +10,7 @@ const app: Express = express();
 const port = process.env.BACKEND_PORT || 3000;
 
 app.use(bodyParser.json())
-app.use(logger, router)
+app.use(router)
 
 app.listen(port, () => {
     console.log(`BackEnd is running at port ${port}`);

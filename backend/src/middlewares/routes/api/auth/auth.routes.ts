@@ -6,7 +6,7 @@ import registerController from "../../../../controllers/auth/register.controller
 const authRouter = Router();
 
 authRouter.get("/", (req: Request, res: Response) => {
-  res.json({ env: 'process.env.TEST_ENV' });
+  res.json({ env: process.env.TEST_ENV });
 });
 
 authRouter.post("/login", (req: Request, res: Response) => {
