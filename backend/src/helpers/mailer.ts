@@ -1,16 +1,26 @@
 import nodemailer from "nodemailer";
+import {
+  InsertVerificationTokenMutation,
+  RegisterUserMutation,
+} from "../utils/gql/generated/graphql";
+import { TokenIdentifier } from "./verificationToken";
 
 const isProd = process.env.NODE_ENV === "production" ? true : false;
 
-const sendMail = async () => {
+const sendMail = async (
+  user: RegisterUserMutation,
+  token: InsertVerificationTokenMutation
+) => {
   console.log(isProd);
   const transport = await transporter();
   const info = await transport.sendMail({
-    from: '"Fluxem 👻" <info@microservices.al>',
-    to: "julian.cuni@microservices.al",
-    subject: "Hello ✔",
-    text: "Hello world?",
-    html: "<b>Hello world?</b>",
+    from: process.env.SMTP_FROM,
+    to: user.insert_user_one?.email,
+    subject: TokenIdentifier.EMAIL_VERIFY
+      ? "Verify your email"
+      : "Password Reset Request",
+    text: token.insert_verification_token_one?.token,
+    html: `<a href="http://methetethashe.com/verify_email?token=${token.insert_verification_token_one?.token}">Verify your email</b>`,
   });
   if (!isProd) {
     console.log("Message sent: %s", info.messageId);
