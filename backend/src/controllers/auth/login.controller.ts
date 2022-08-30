@@ -1,7 +1,9 @@
 import { Request } from "express";
+import { sdk } from "../../helpers/gql.client";
 
-const loginController = (req: Request) => {
-  console.log(req.body);
+const loginController = async (req: Request) => {
+  const users = await sdk.allUsers();
+  console.log(users);
   return true;
 };
 

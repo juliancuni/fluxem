@@ -15,7 +15,6 @@ authRouter.post("/login", (req: Request, res: Response) => {
 });
 
 authRouter.post("/register", async (req: Request, res: Response) => {
-    // console.log(req)
     await registerController(req.body as Record<string, string>);
     res.json({ "test": "route" });
   });

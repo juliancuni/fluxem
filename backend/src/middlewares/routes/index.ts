@@ -12,7 +12,6 @@ const router = Router()
 //         res.redirect('https://google.com')
 //     } else {
 //         console.log(req.headers.cookie)
-
 //         next()
 //     }
 // })
