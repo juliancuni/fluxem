@@ -5,7 +5,7 @@ import {
   User_Insert_Input,
 } from "../../utils/gql/generated/graphql";
 import { Request, Response } from "express";
-import sendMail from "../../helpers/mailer";
+import sendMail from "../../helpers/mailer.helper";
 import {
   TokenIdentifier,
   verificationTokenGenerator,

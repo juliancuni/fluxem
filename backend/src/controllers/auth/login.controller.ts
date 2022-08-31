@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { ClientError } from "graphql-request";
-import validateEmail from "../../helpers/emailValidator";
+import validateEmail from "../../helpers/email.validator";
 import { sdk } from "../../helpers/gql.client";
 import { verifyPassword } from "../../helpers/password.hash";
 import { GetUserByEmailQuery, User } from "../../utils/gql/generated/graphql";
