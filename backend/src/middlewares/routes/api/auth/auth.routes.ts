@@ -9,9 +9,8 @@ authRouter.get("/", (req: Request, res: Response) => {
   res.json({ env: process.env.TEST_ENV });
 });
 
-authRouter.post("/login", (req: Request, res: Response) => {
-  loginController(req);
-  res.json({ test: "route" });
+authRouter.post("/login", async (req: Request, res: Response) => {
+  await loginController(req, res);
 });
 
 authRouter.post("/register", async (req: Request, res: Response) => {

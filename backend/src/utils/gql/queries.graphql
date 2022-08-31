@@ -6,7 +6,15 @@ query allUsers {
 
 query getUserByEmail($email: String!) {
   user(where: { email: { _eq: $email } }) {
-    email
+    id,
+    password
+  }
+}
+
+query getUserByUsername($username: String!) {
+  user(where: { username: { _eq: $username } }) {
+    id,
+    password
   }
 }
 
