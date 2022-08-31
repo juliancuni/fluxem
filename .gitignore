@@ -108,6 +108,5 @@ hasura
 
 .DS_Store
 
-backend/src/utils/gql/queries.graphql
 backend/src/utils/gql/generated/graphql.ts
 backend/src/utils/gql/generated/graphql.schema.json

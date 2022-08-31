@@ -1,0 +1,24 @@
+query allUsers {
+  user {
+    id
+  }
+}
+
+query getUserByEmail($email: String!) {
+  user(where: { email: { _eq: $email } }) {
+    email
+  }
+}
+
+mutation registerUser($user: user_insert_input!) {
+  insert_user_one(object: $user) {
+    id,
+    email
+  }
+}
+
+mutation insertVerificationToken($token: verification_token_insert_input!) {
+  insert_verification_token_one(object: $token) {
+    id, token, user_id, expires
+  }
+}
