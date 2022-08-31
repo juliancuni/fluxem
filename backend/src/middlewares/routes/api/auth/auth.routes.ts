@@ -1,5 +1,6 @@
 // Auth router
 import { Router, Request, Response } from "express";
+import jwksController from "../../../../controllers/auth/jwks.controller";
 import loginController from "../../../../controllers/auth/login.controller";
 import registerController from "../../../../controllers/auth/register.controller";
 
@@ -14,7 +15,11 @@ authRouter.post("/login", async (req: Request, res: Response) => {
 });
 
 authRouter.post("/register", async (req: Request, res: Response) => {
-    await registerController(req, res);
-  });
+  await registerController(req, res);
+});
+
+authRouter.get("/jwks", async (req: Request, res: Response) => {
+  await jwksController(req, res);
+});
 
 export default authRouter;
