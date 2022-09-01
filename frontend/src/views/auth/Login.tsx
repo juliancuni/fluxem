@@ -6,8 +6,7 @@ const Login: Component = () => {
   const { form, handleInput, handleLogin, loading } = useLogin();
   return (
     <div>
-      <h3>Home</h3>
-
+      <h3>Login</h3>
       <form onSubmit={handleLogin}>
         <label for="name">Email</label>
         <input type="text" name="identifier" onInput={handleInput} required />
