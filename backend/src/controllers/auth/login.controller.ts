@@ -25,7 +25,9 @@ const loginController = async (req: Request, res: Response) => {
       //Verify Password
       if (passVerified) {
         //create token and cookie.
-        res.set("Set-Cookie", await serializeToken(userId));
+        const token = await serializeToken(userId)
+        console.log(token)
+        res.set("Set-Cookie", token);
         res.json(req.body);
       } else {
         res.json({ error: "Username/email or password wrong" });
